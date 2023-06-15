@@ -1,13 +1,10 @@
-// const mongoose = require('mongoose');
+import { connect } from "mongoose";
 
-// const URI = 'mongodb://localhost/mernstack';
-
-// mongoose.connect(URI,{
-//     useNewUrlParser:true,
-// });
-
-// const connection = mongoose.connection;
-
-// connection.once('open',()=>{
-//     console.log('DB is connected');
-// })
+(async () => {
+  try {
+    const db = await connect("mongodb://127.0.0.1:27017/mern-stack")
+    console.log("Database is connected to:", db.connection.name);
+  } catch (error) {
+    console.error(error);
+  }
+})();
