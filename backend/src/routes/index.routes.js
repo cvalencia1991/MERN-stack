@@ -6,6 +6,10 @@ router.get("/", (req, res) => {
   res.render('home');
 });
 
+router.post("/tasks/add", (req, res) => {
+  res.send('save-task');
+});
+
 router.get("/about", (req, res) => {
   res.render('about');
 });
