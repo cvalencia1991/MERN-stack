@@ -11,5 +11,15 @@
       id="description"
     ></textarea>
   </div>
-    <button type="submit">Add</button>
+  <button type="submit">Add</button>
 </form>
+
+<ul>
+  {{#each tasks}}
+    <li>{{title}}
+      <p>{{descritpion}}</p>
+      <button>edit</button>
+      <button>delete</button>
+    </li>
+  {{/each}}
+</ul>
