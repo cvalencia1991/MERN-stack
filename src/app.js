@@ -19,7 +19,7 @@ app.engine(
 );
 
 app.set("view engine", ".hbs");
-app.use(express.static(__dirname + '/public'));
+
 
 // Middlewares
 app.use(morgan("dev"));
@@ -28,5 +28,8 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use(indexRoutes);
+
+// Static files
+app.use(express.static(__dirname + '/public'));
 
 export default app;

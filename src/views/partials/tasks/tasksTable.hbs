@@ -1,30 +1,36 @@
-<table>
-  <thead>
-    <tr>
-      <th>No.</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Operations</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each tasks}}
-      <tr>
-        <td>{{@index}}</td>
-        <td>{{this.title}}</td>
-        <td>{{this.description}}</td>
-        <td>
-          {{#if done}}
-            <a href="/toggleDone/{{_id}}">Undone</a>
-          {{else}}
-            <a href="/toggleDone/{{_id}}">Done</a>
-          {{/if}}
-          <a href="/task/{{_id}}/edit">Edit</a>
-          <a href="/delete/{{_id}}">Delete</a>
-
-        </td>
-      </tr>
-    {{/each}}
-  </tbody>
-
-</table>
+{{#if tasks}}
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th class="px-6 py-3">No.</th>
+          <th class="px-6 py-3">Title</th>
+          <th class="px-6 py-3">Description</th>
+          <th class="px-6 py-3">Operations</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each tasks}}
+          <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+            <td class="px-6 py-4">{{@index}}</td>
+            <td class="px-6 py-4">{{this.title}}</td>
+            <td class="px-6 py-4">{{this.description}}</td>
+            <td class="px-6 py-4">
+              {{#if done}}
+                <a class="text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" href="/toggleDone/{{_id}}">Undone</a>
+              {{else}}
+                <a class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" href="/toggleDone/{{_id}}">Done</a>
+              {{/if}}
+              <a class="text-white bg-lime-500 hover:bg-lime-800 focus:ring-4 focus:ring-lime-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-lime-600 dark:hover:bg-lime-700 focus:outline-none dark:focus:ring-lime-800" href="/task/{{_id}}/edit">Edit</a>
+              <a  class="bg-red-500 hover:bg-red-500 focus:ring-4 text-white font-bold py-2 px-4 border border-red-500 rounded" href="/delete/{{_id}}">Delete</a>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  {{else}}
+  <div>
+    <h1>No tasks</h1>
+  </div>
+{{/if}}

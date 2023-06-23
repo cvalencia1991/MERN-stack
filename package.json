@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js --exec babel-node",
+    "build": "babel src --out-dir dist && ncp src/views dist/views && ncp src/public dist/public",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "style": "npx tailwindcss -i ./src/views/css/tailwind.css -o ./src/views/css/styles.css --watch"
+    "style": "npx tailwindcss -i ./src/public/css/tailwind.css -o ./src/public/css/styles.css --watch"
   },
   "keywords": [],
   "author": "Cesar Valencia",
@@ -29,7 +30,9 @@
     "@babel/cli": "^7.22.5",
     "@babel/core": "^7.22.5",
     "@babel/node": "^7.22.5",
+    "@babel/plugin-transform-runtime": "^7.22.5",
     "@babel/preset-env": "^7.22.5",
+    "ncp": "^2.0.0",
     "nodemon": "^2.0.22",
     "tailwindcss": "^3.3.2"
   }
